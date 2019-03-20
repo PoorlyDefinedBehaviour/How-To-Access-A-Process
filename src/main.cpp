@@ -47,7 +47,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  print("Game Window:", window, "\n");
+  print("Window:", window, "\n");
   print("Process ID:", procID, "\n");
   print("Process Handle:", hProc);
 }
