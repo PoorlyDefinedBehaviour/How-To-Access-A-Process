@@ -18,6 +18,8 @@ int main()
   /**
    * Encontrar a janela do programa;
    * O programa precisar estar aberto;
+   * É só colocar o nome da janela do programa;
+   * https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-findwindowa
    * */
   HWND window = FindWindowA(NULL, "programabruxo");
   if (!window)
@@ -28,6 +30,7 @@ int main()
 
   /**
    * Pegar o id do programa;
+   * https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowthreadprocessid
    * */
   DWORD procID;
   GetWindowThreadProcessId(window, &procID);
@@ -38,8 +41,8 @@ int main()
   }
 
   /**
-   * Abrir uma handle para o programa, 
-   * sem isso não da pra mexer na memoria dele
+   * Abrir uma handle para o programa
+   * https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-openprocess
    * */
   HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID);
   if (!hProc)
@@ -54,8 +57,11 @@ int main()
 
   /**
    * Escrever e ler a memória do processo
-   * Se o endereço não for static, 
-   * você vai precisar encontrar o endereço certo.
+   * (address) = endereço da variável que você quer mudar o valor
+   * (value) = valor que vai ser escrito no local da memória onde a variável esta
+   * (buffer) = uma variavel para armazenar o valor que esta no address
+   * https://docs.microsoft.com/en-us/windows/desktop/api/memoryapi/nf-memoryapi-readprocessmemory
+   * https://docs.microsoft.com/en-us/windows/desktop/api/memoryapi/nf-memoryapi-writeprocessmemory
    * */
   const uintptr_t address = 0x404004;
   int value = 0;
