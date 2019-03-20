@@ -18,7 +18,7 @@ int main()
   /**
    * Encontrar a janela do programa;
    * */
-  HWND window = FindWindowA(NULL, "Calculadora");
+  HWND window = FindWindowA(NULL, "programabruxo");
   if (!window)
   {
     print("Couldn't find window");
@@ -47,7 +47,22 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  print("Window:", window, "\n");
+  /**
+   * Escrever e ler a memória do processo
+   * */
+  const uintptr_t address = 0x404004;
+  int value = 0;
+  int buffer = 0;
+  while (true)
+  {
+    ReadProcessMemory(hProc, (BYTE *)address, &buffer, sizeof(buffer), NULL);
+    print("\nBuffer:", buffer);
+    value += buffer;
+    WriteProcessMemory(hProc, (BYTE *)address, &value, sizeof(value), NULL);
+    Sleep(3000);
+  }
+
+  print(" Window:", window, "\n");
   print("Process ID:", procID, "\n");
   print("Process Handle:", hProc);
 }
