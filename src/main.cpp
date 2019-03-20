@@ -17,6 +17,7 @@ int main()
 {
   /**
    * Encontrar a janela do programa;
+   * O programa precisar estar aberto;
    * */
   HWND window = FindWindowA(NULL, "programabruxo");
   if (!window)
