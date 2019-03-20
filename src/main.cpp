@@ -58,7 +58,7 @@ int main()
   /**
    * Escrever e ler a memória do processo
    * (address) = endereço da variável que você quer mudar o valor
-   * (value) = valor que vai ser escrito no local da memória onde a variável esta
+   * (value) = valor que vai ser escrito no local da memória onde a variável esta armazenada
    * (buffer) = uma variavel para armazenar o valor que esta no address
    * https://docs.microsoft.com/en-us/windows/desktop/api/memoryapi/nf-memoryapi-readprocessmemory
    * https://docs.microsoft.com/en-us/windows/desktop/api/memoryapi/nf-memoryapi-writeprocessmemory
