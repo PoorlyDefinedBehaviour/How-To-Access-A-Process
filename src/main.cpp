@@ -48,6 +48,10 @@ int main()
     exit(EXIT_FAILURE);
   }
 
+  print(" Window:", window, "\n");
+  print("Process ID:", procID, "\n");
+  print("Process Handle:", hProc);
+
   /**
    * Escrever e ler a memória do processo
    * Se o endereço não for static, 
@@ -64,8 +68,4 @@ int main()
     WriteProcessMemory(hProc, (BYTE *)address, &value, sizeof(value), NULL);
     Sleep(3000);
   }
-
-  print(" Window:", window, "\n");
-  print("Process ID:", procID, "\n");
-  print("Process Handle:", hProc);
 }
