@@ -50,6 +50,8 @@ int main()
 
   /**
    * Escrever e ler a memória do processo
+   * Se o endereço não for static, 
+   * você vai precisar encontrar o endereço certo.
    * */
   const uintptr_t address = 0x404004;
   int value = 0;
